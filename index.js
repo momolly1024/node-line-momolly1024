@@ -20,7 +20,7 @@ bot.on('message', async (event) => {
     if (event.message.text === 'now_playing') {
       for (let i = 0; i < data.results.length; i++) {
         // movie += data.result[i].original_title
-        msg += data.results[i].title + '\n'
+        msg += '現正熱映中的電影有：' + data.results[i].title + '\n'
       }
     } else if (event.message.type === 'sticker') {
       msg = '抱歉，我看不懂貼圖>.<'
