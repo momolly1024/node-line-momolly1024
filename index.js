@@ -20,11 +20,7 @@ bot.on('message', async (event) => {
     for (let i = 0; i < data.results.length; i++) {
       msg = data.results[i].title
     }
-    // test
-    linebot.getUserProfile(event.source.userId)
-    event.source.profile().then(function (profile) {
-      event.reply('Hello ' + profile.displayName)
-    })
+
   } catch (error) {
     msg = '發生錯誤'
   }
