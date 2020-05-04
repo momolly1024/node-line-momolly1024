@@ -32,7 +32,7 @@ bot.on('message', async (event) => {
   } catch (error) {
     msg = '發生錯誤'
   }
-  event.reply(`尼豪，現正熱映中的電影有${msg}\n`)
+  event.reply(`${msg}\n`)
 })
 
 // 在 port 啟動
