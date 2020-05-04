@@ -15,7 +15,6 @@ const bot = linebot({
 // 當收到訊息時
 bot.on('message', async (event) => {
   let msg = ''
-  let movie = ''
   try {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     for (let i = 0; i < data.results.length; i++) {
