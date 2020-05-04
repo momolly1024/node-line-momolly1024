@@ -20,7 +20,7 @@ bot.on('message', async (event) => {
     if (event.message.text === 'now_playing') {
       for (let i = 0; i < data.results.length; i++) {
         // movie += data.result[i].original_title
-        msg += data.results[i].title + '\n'
+        msg += data.results[i].title + (data.results[i].overview) + '\n'
       }
     } else if (event.message.type === 'sticker') {
       msg = {
