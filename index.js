@@ -16,8 +16,8 @@ const bot = linebot({
 bot.on('message', async (event) => {
   let msg = ''
   try {
-    const data = await rp({ uri: 'https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=5', json: true })
-    msg = data.title[0]
+    const data = await rp({ uri: 'https://kktix.com/events.json', json: true })
+    msg = data.entry[0].title
   } catch (error) {
     msg = '發生錯誤'
   }
