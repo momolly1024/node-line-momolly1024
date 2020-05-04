@@ -17,7 +17,9 @@ bot.on('message', async (event) => {
   let msg = ''
   try {
     const data = await rp({ uri: 'https://kktix.com/events.json', json: true })
-    msg = data.entry[0].title
+    for (let i = 0; i < 10; i++) {
+      msg = data.entry[i].title
+    }
   } catch (error) {
     msg = '發生錯誤'
   }
