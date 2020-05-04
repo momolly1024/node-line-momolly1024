@@ -16,8 +16,8 @@ const bot = linebot({
 bot.on('message', async (event) => {
   let msg = ''
   try {
-    const data = await rp({ uri: 'https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613', json: true })
-    msg = data.result.results.A_Pic04_ALT[2]
+    const data = await rp({ url: 'https://kktix.com/events.json', json: true })
+    msg = data.entry[0].title
     console.log(msg)
   } catch (error) {
     msg = '發生錯誤'
