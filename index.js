@@ -20,6 +20,12 @@ bot.on('message', async (event) => {
     for (let i = 0; i < data.results.length; i++) {
       msg = data.results[i].title
     }
+    setTimeout(function () {
+      var userId = '使用者 ID'
+      var sendMsg = '要發送的文字'
+      bot.push(userId, sendMsg)
+      console.log('send: ' + sendMsg)
+    }, 5000)
   } catch (error) {
     msg = '發生錯誤'
   }
