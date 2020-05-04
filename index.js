@@ -2,7 +2,7 @@
 import linebot from 'linebot'
 // 引用 dotenv套件
 import dotenv from 'dotenv'
-//
+// 引用request-promise套件
 import rp from 'request-promise'
 // 讀取 .env檔
 dotenv.config()
@@ -16,8 +16,9 @@ const bot = linebot({
 bot.on('message', async (event) => {
   let msg = ''
   try {
-    const data = await rp({ uri: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
-    msg = data.results.title[1]
+    const data = await rp({ uri: 'https://kktix.com/events.json', json: true })
+    msg = data.entry[0].title
+    console.log(msg)
   } catch (error) {
     msg = '發生錯誤'
   }
