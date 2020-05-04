@@ -19,11 +19,12 @@ bot.on('message', async (event) => {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     for (let i = 0; i < data.results.length; i++) {
       msg += data.results[i].title
+      event.reply(`${msg}+\n`)
     }
   } catch (error) {
     msg = '發生錯誤'
   }
-  event.reply(`${msg}+'\n'`)
+  event.reply(`${msg}+\n`)
 })
 
 // 在 port 啟動
