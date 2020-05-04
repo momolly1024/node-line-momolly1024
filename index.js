@@ -19,7 +19,6 @@ bot.on('message', async (event) => {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     for (let i = 0; i < 10; i++) {
       msg = data.results[i].title
-      msggg = data.results[0].overview
     }
   } catch (error) {
     msg = '發生錯誤'
