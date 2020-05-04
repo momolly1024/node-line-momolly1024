@@ -17,14 +17,20 @@ bot.on('message', async (event) => {
   let msg = ''
   try {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
-    for (let i = 0; i < data.results.length; i++) {
+    for (let i = 0; i < 10; i++) {
       msg = data.results[i].title
     }
-
+    if (event.message.type = 'text') {
+      var msg2 = event.message.text
+      event.reply(msg2).then(function (data) {
+        console.log(msg2)
+      })
+    }
   } catch (error) {
     msg = '發生錯誤'
   }
   event.reply(msg)
+  event.reply(msg2)
 })
 
 // 在 port 啟動
