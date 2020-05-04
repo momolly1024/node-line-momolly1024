@@ -22,6 +22,10 @@ bot.on('message', async (event) => {
         // movie += data.result[i].original_title
         msg += data.results[i].title
       }
+    } else if (event.message.type === 'sticker') {
+      msg = '抱歉，我看不懂貼圖>.<'
+    } else if (event.message.type === 'image') {
+      msg = '抱歉，我不能收你的照片:<'
     } else {
       msg = '請輸入now_playing'
     }
