@@ -20,12 +20,11 @@ bot.on('message', async (event) => {
     for (let i = 0; i < data.results.length; i++) {
       msg = data.results[i].title
     }
-    setTimeout(function () {
-      var userId = '使用者 ID'
-      var sendMsg = '要發送的文字'
-      bot.push(userId, sendMsg)
-      console.log('send: ' + sendMsg)
-    }, 5000)
+    // test
+    linebot.getUserProfile(event.source.userId)
+    event.source.profile().then(function (profile) {
+      event.reply('Hello ' + profile.displayName)
+    })
   } catch (error) {
     msg = '發生錯誤'
   }
