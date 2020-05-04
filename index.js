@@ -15,7 +15,6 @@ const bot = linebot({
 // 當收到訊息時
 bot.on('message', async (event) => {
   let msg = ''
-  const now = '現正熱映中的電影有：'
   try {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     if (event.message.text === 'now_playing') {
@@ -24,7 +23,11 @@ bot.on('message', async (event) => {
         msg += data.results[i].title + '\n'
       }
     } else if (event.message.type === 'sticker') {
-      msg = '抱歉，我看不懂貼圖>.<'
+      msg = {
+        type: 'sticker',
+        packageId: '11537',
+        stickerId: '52002737'
+      }
     } else if (event.message.type === 'image') {
       msg = '抱歉，我不能收你的照片:<'
     } else {
@@ -33,7 +36,7 @@ bot.on('message', async (event) => {
   } catch (error) {
     msg = '發生錯誤'
   }
-  event.reply(now, msg)
+  event.reply(msg)
 })
 
 // 在 port 啟動
