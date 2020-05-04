@@ -17,9 +17,13 @@ bot.on('message', async (event) => {
   let msg = ''
   try {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
-    for (let i = 0; i < data.results.length; i++) {
-      // movie += data.result[i].original_title
-      msg += data.results[i].title
+    if (event.message.text === 'now_playing') {
+      for (let i = 0; i < data.results.length; i++) {
+        // movie += data.result[i].original_title
+        msg += data.results[i].title
+      }
+    } else {
+      msg = '請輸入now_playing'
     }
   } catch (error) {
     msg = '發生錯誤'
