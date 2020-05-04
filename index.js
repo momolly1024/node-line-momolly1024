@@ -29,8 +29,7 @@ bot.on('message', async (event) => {
   } catch (error) {
     msg = '發生錯誤'
   }
-  event.reply(msg)
-  event.reply(msg2)
+  event.reply(msg, msg2)
 })
 
 // 在 port 啟動
