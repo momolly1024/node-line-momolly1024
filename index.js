@@ -25,7 +25,7 @@ bot.on('message', async (event) => {
   } catch (error) {
     msg = '發生錯誤'
   }
-  event.reply(`${movie}${msg}+\n`)
+  event.reply(movie, msg)
 })
 
 // 在 port 啟動
