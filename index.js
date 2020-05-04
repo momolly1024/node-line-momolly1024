@@ -16,8 +16,8 @@ const bot = linebot({
 bot.on('message', async (event) => {
   let msg = ''
   try {
-    const data = await rp({ url: 'https://kktix.com/events.json', json: true })
-    msg = data.entry[0].title
+    const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
+    msg = data.results[0].title
     console.log(msg)
   } catch (error) {
     msg = '發生錯誤'
