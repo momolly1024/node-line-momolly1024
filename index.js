@@ -16,8 +16,8 @@ const bot = linebot({
 bot.on('message', async (event) => {
   let msg = ''
   try {
-    const data = await rp({ uri: 'https://data.coa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=061', json: true })
-    msg = data.type[0]
+    const data = await rp({ uri: 'https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=5', json: true })
+    msg = data.title[0]
   } catch (error) {
     msg = '發生錯誤'
   }
