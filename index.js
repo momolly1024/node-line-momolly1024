@@ -21,7 +21,6 @@ bot.on('message', async (event) => {
     for (let i = 0; i < data.results.length; i++) {
       movie += data.result[i].original_title
       msg += data.results[i].title
-      event.reply(`${movie}${msg}+\n`)
     }
   } catch (error) {
     msg = '發生錯誤'
