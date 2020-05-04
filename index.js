@@ -17,8 +17,9 @@ bot.on('message', async (event) => {
   let msg = ''
   try {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
-    msg = data.results[0].title
-    console.log(msg)
+    for (let i = 0; i < data.results.length; i++) {
+      msg = data.results[i].title
+    }
   } catch (error) {
     msg = '發生錯誤'
   }
