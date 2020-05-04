@@ -19,16 +19,17 @@ bot.on('message', async (event) => {
   try {
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     for (let i = 0; i < data.results.length; i++) {
-      movie += data.result[i].original_title
+      // movie += data.result[i].original_title
       msg += data.results[i].title
     }
   } catch (error) {
     msg = '發生錯誤'
   }
-  event.reply(movie, msg)
+  event.reply(msg)
 })
 
 // 在 port 啟動
 bot.listen('/', process.env.PORT, () => {
   console.log('機器人已啟動')
+  // console.log(movie)
 })
