@@ -28,7 +28,7 @@ bot.on('message', async (event) => {
       }
     } else if (event.message.text === '說明') {
       for (let i = 0; i < data.results.length; i++) {
-        msg = `${data.results[i].original_title}\n電影簡介\n${data.results[i].overview}\n`
+        msg += `${data.results[i].original_title}\n電影簡介\n${data.results[i].overview}\n`
       }
     } else if (event.message.text === '機器人在哪') {
       msg = {
