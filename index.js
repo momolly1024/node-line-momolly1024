@@ -24,7 +24,7 @@ bot.on('message', async (event) => {
       }
     } else if (event.message.text === '熱映中') {
       for (let i = 0; i < data.results.length; i++) {
-        msg += data.results[i].title + '\n'
+        msg = data.results[0].title + '\n'
       }
     } else if (event.message.text === '1') {
       for (let i = 0; i < data.results.length; i++) {
