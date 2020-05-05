@@ -60,18 +60,20 @@ bot.on('message', async (event) => {
         altText: '你忍心嗎QQ',
         template: {
           type: 'confirm',
-          text: 'Are you sure?',
+          text: '決定我的去向',
           actions: [{
             type: 'message',
             label: '滾！',
-            text: '掰掰Q.Q'
+            text: '掰掰'
           }, {
             type: 'message',
             label: '留下來',
-            text: '3Q'
+            text: '再給你一次機會'
           }]
         }
       }
+    } else if (event.message.text === '掰掰') {
+      bot.on('leave')
     } else {
       msg = '請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！不過踩雷了別怪我歐嗚嗚嗚...\n好啦還是你想知道【機器人在哪】、【機器人長相】、【測試一下】、【？？？】...'
     }
