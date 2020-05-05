@@ -28,11 +28,8 @@ bot.on('message', async (event) => {
       }
     } else if (event.message.text === '說明') {
       for (let i = 0; i < data.results.length; i++) {
-        msg = `${data.results[5].original_title}\n電影簡介\n${data.results[5].overview}\n`
-      } setTimeout(function () {
-        const send = 'hello!'
-        bot.push(send)
-      }, 5000)
+        msg = `${data.results[i].original_title}\n電影簡介\n${data.results[i].overview}\n`
+      }
     } else if (event.message.text === '機器人在哪') {
       msg = {
         type: 'location',
