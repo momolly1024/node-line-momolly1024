@@ -57,47 +57,23 @@ bot.on('message', async (event) => {
     } else if (event.message.text === '測試一下') {
       msg = {
         type: 'template',
-        altText: 'this is a confirm template',
+        altText: '你忍心嗎QQ',
         template: {
           type: 'confirm',
           text: 'Are you sure?',
           actions: [{
             type: 'message',
-            label: 'Yes',
-            text: 'yes'
+            label: '滾！',
+            text: '掰掰Q.Q'
           }, {
             type: 'message',
-            label: 'No',
-            text: 'no'
-          }]
-        }
-      }
-    } else if (event.message.text === '測試二下') {
-      msg = {
-        type: 'template',
-        altText: 'this is a buttons template',
-        template: {
-          type: 'buttons',
-          thumbnailImageUrl: 'https://example.com/bot/images/image.jpg',
-          title: 'Menu',
-          text: 'Please select',
-          actions: [{
-            type: 'postback',
-            label: 'Buy',
-            data: 'action=buy&itemid=123'
-          }, {
-            type: 'postback',
-            label: 'Add to cart',
-            data: 'action=add&itemid=123'
-          }, {
-            type: 'uri',
-            label: 'View detail',
-            uri: 'http://example.com/page/123'
+            label: '留下來',
+            text: '3Q'
           }]
         }
       }
     } else {
-      msg = '請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！\n好啦還是你想知道......【機器人在哪】、【機器人長相】、【???】......'
+      msg = '請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！不過踩雷了別怪我歐嗚嗚嗚...\n好啦還是你想知道【機器人在哪】、【機器人長相】、【測試一下】、【？？？】...'
     }
   } catch (error) {
     msg = '發生錯誤'
