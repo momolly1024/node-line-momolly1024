@@ -83,8 +83,27 @@ bot.on('message', async (event) => {
   event.reply(msg)
 })
 
+bot.on('join', async (join) => {
+  let say = ''
+  try {
+    say = [
+      {
+        type: 'text',
+        text: 'Hello, world 1'
+      },
+      {
+        type: 'sticker',
+        packageId: '11537',
+        stickerId: '52002737'
+      }
+    ]
+  } catch (error) {
+    say = '發生錯誤'
+  }
+  join.reply(say)
+}
+
 // 在 port 啟動
 bot.listen('/', process.env.PORT, () => {
   console.log('機器人已啟動')
-  // console.log(movie)
 })
