@@ -26,6 +26,10 @@ bot.on('message', async (event) => {
       for (let i = 0; i < data.results.length; i++) {
         msg += data.results[i].title + '\n'
       }
+    } else if (event.message.text === '1') {
+      for (let i = 0; i < data.results.length; i++) {
+        msg += data.results[i].overview + '\n'
+      }
     } else if (event.message.text === '機器人在哪') {
       msg = {
         type: 'location',
@@ -54,7 +58,7 @@ bot.on('message', async (event) => {
         originalContentUrl: 'https://i.imgur.com/ZTxlAke.png',
         previewImageUrl: 'https://i.imgur.com/ZTxlAke.png'
       }]
-    } else if (event.message.text === '測試一下') {
+    } else if (event.message.text === '滾') {
       msg = {
         type: 'template',
         altText: '你忍心嗎QQ',
@@ -72,10 +76,8 @@ bot.on('message', async (event) => {
           }]
         }
       }
-    } else if (event.message.text === '掰掰') {
-      bot.on('leave')
     } else {
-      msg = '請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！不過踩雷了別怪我歐嗚嗚嗚...\n好啦還是你想知道【機器人在哪】、【機器人長相】、【測試一下】、【？？？】...'
+      msg = '請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！不過踩雷了別怪我歐嗚嗚嗚...\n好啦還是你想知道【機器人在哪】、【機器人長相】、【滾】、【？？？】...'
     }
   } catch (error) {
     msg = '發生錯誤'
@@ -102,21 +104,16 @@ bot.on('join', async (event) => {
   }
   event.reply(say)
 })
+bot.on('message', async (event) => {
+  let action = ''
+  try {
 
+  } catch (error) {
+    action = '發生錯誤'
+  }
+  event.reply(action)
+})
 // 在 port 啟動
 bot.listen('/', process.env.PORT, () => {
   console.log('機器人已啟動')
-  // console.log(movie)
 })
-
-// bot.on('join', async (event) => {
-//   let say = ''
-//   try {
-//     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
-//     if (event.message.text === 'now_playing') {
-//     }
-//   } catch (error) {
-//     say = '發生錯誤'
-//   }
-//   event.reply(say)
-// })
