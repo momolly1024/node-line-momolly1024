@@ -26,7 +26,7 @@ bot.on('message', async (event) => {
       for (let i = 0; i < data.results.length; i++) {
         msg = data.results[0].title + '\n'
       }
-    } else if (event.message.text === '1') {
+    } else if (event.message.text === Number) {
       for (let i = 0; i < data.results.length; i++) {
         msg += data.results[i].overview + '\n'
       }
