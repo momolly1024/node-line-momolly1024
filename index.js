@@ -29,7 +29,7 @@ bot.on('message', async (event) => {
     } else if (event.message.text === '機器人在哪') {
       msg = {
         type: 'location',
-        title: '就是那個雲端，使用TMDB抓資料',
+        title: '在你心裡',
         address: '25172新北市淡水區中正路一段2號1樓(國賓影城@淡水禮萊廣場)',
         latitude: 25.176703,
         longitude: 121.429059
@@ -37,7 +37,7 @@ bot.on('message', async (event) => {
     } else if (event.message.type === 'sticker') {
       msg = [{
         type: 'text',
-        text: '不管怎樣，送你一個抱抱啦'
+        text: '不管怎樣，送你一個抱抱'
       }, {
         type: 'sticker',
         packageId: '11537',
@@ -46,13 +46,58 @@ bot.on('message', async (event) => {
     } else if (event.message.type === 'image') {
       msg = '抱歉，我不能收你的照片:<'
     } else if (event.message.text === '機器人長相') {
-      msg = {
+      msg = [{
+        type: 'text',
+        text: '你要我的照片做什麼˙v˙！'
+      }, {
         type: 'image',
         originalContentUrl: 'https://i.imgur.com/ZTxlAke.png',
         previewImageUrl: 'https://i.imgur.com/ZTxlAke.png'
+      }]
+    } else if (event.message.text === '測試一下') {
+      msg = {
+        type: 'template',
+        altText: 'this is a confirm template',
+        template: {
+          type: 'confirm',
+          text: 'Are you sure?',
+          actions: [{
+            type: 'message',
+            label: 'Yes',
+            text: 'yes'
+          }, {
+            type: 'message',
+            label: 'No',
+            text: 'no'
+          }]
+        }
+      }
+    } else if (event.message.text === '測試二下') {
+      msg = {
+        type: 'template',
+        altText: 'this is a buttons template',
+        template: {
+          type: 'buttons',
+          thumbnailImageUrl: 'https://example.com/bot/images/image.jpg',
+          title: 'Menu',
+          text: 'Please select',
+          actions: [{
+            type: 'postback',
+            label: 'Buy',
+            data: 'action=buy&itemid=123'
+          }, {
+            type: 'postback',
+            label: 'Add to cart',
+            data: 'action=add&itemid=123'
+          }, {
+            type: 'uri',
+            label: 'View detail',
+            uri: 'http://example.com/page/123'
+          }]
+        }
       }
     } else {
-      msg = '請輸入【now_playing】、【熱映中】或指定熱播排名(1~20)，查看近期熱播中的電影！\n 好啦還是你想知道...【機器人在哪】、【機器人長相】、【???】'
+      msg = '請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！\n好啦還是你想知道......【機器人在哪】、【機器人長相】、【???】......'
     }
   } catch (error) {
     msg = '發生錯誤'
