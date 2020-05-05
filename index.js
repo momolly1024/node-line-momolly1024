@@ -26,9 +26,9 @@ bot.on('message', async (event) => {
       for (let i = 0; i < data.results.length; i++) {
         msg += data.results[i].title + '\n'
       }
-    } else if (event.message.text === '說明') {
+    } else if (event.message.text === '簡介') {
       for (let i = 0; i < 5; i++) {
-        msg += `${data.results[i].original_title}\n電影簡介\n${data.results[i].overview}\n`
+        msg += `${data.results[i].original_title}\n電影簡介\n${data.results[i].overview}\n\n`
       }
     } else if (event.message.text === '機器人在哪') {
       msg = {
@@ -77,7 +77,7 @@ bot.on('message', async (event) => {
         }
       }
     } else {
-      msg = '哈囉尼豪~~ \n請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！\n好啦還是你想知道【機器人在哪】、【機器人長相】、【滾】、【？？？】'
+      msg = '哈囉尼豪~~ \n請輸入【now_playing】或【熱映中】，查看近期熱播中的電影！\n好啦還是你想知道【機器人在哪】、【機器人長相】、【滾】、【簡介】(僅顯示前五部電影簡介)、【...】'
     }
   } catch (error) {
     msg = '發生錯誤'
