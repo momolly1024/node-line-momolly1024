@@ -83,27 +83,40 @@ bot.on('message', async (event) => {
   event.reply(msg)
 })
 
-bot.on('join', async (join) => {
+bot.on('join', async (event) => {
   let say = ''
   try {
     say = [
       {
         type: 'text',
-        text: 'Hello, world 1'
+        text: 'OH YA,大家好~~~'
       },
       {
         type: 'sticker',
         packageId: '11537',
-        stickerId: '52002737'
+        stickerId: '52002734'
       }
     ]
   } catch (error) {
     say = '發生錯誤'
   }
-  join.reply(say)
-}
+  event.reply(say)
+})
 
 // 在 port 啟動
 bot.listen('/', process.env.PORT, () => {
   console.log('機器人已啟動')
+  // console.log(movie)
 })
+
+// bot.on('join', async (event) => {
+//   let say = ''
+//   try {
+//     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
+//     if (event.message.text === 'now_playing') {
+//     }
+//   } catch (error) {
+//     say = '發生錯誤'
+//   }
+//   event.reply(say)
+// })
