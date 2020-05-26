@@ -17,7 +17,6 @@ bot.on('message', async (event) => {
 
   let msg = ''
   try {
-    const recommend = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     const data = await rp({ url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw', json: true })
     if (event.message.text === 'now_playing') {
       for (let i = 0; i < data.results.length; i++) {
@@ -25,9 +24,9 @@ bot.on('message', async (event) => {
         msg += data.results[i].original_title + '\n'
       }
     } else if (event.message.text === '推薦') {
-      const rand = Math.floor((Math.random()*recommend.response.videos.length));
+      const rand = Math.floor((Math.random()*data.results.length));
       for (let i = 0; i < data.results.length; i++) {
-        msg = '隨機推薦你：'+data.results[rand].title 
+        msg = '推薦你：'+data.results[rand].title 
       }
     } else if (event.message.text === '熱映中') {
       for (let i = 0; i < data.results.length; i++) {
