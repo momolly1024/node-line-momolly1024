@@ -2,7 +2,7 @@
 
 #### 機器⼈的好友 ID ：@584tqyel
 #### API文檔：https://www.themoviedb.org/documentation/api?
-#### 連接的公開資料來源：https://api.themoviedb.org/3/movie/now_playing?api_key=0d93c386d9d8221cbfa4c29585d53c53&language=zh-tw
+#### 連接的公開資料來源：https://api.themoviedb.org/3/movie/now_playing?api_key={個人帳號的KEY}&language=zh-tw
 #### 主要功能：查詢近期20部熱映中的電影
 ### 使用說明
 
@@ -27,3 +27,10 @@
 其他文字：回覆可使用的指令
 
 #### 加入群組：會有禮貌的問好及傳送貼圖
+
+
+![](https://i.imgur.com/Ff72XGm.png)
+
+
+
+
